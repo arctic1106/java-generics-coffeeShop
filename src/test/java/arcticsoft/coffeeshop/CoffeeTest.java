@@ -1,19 +1,33 @@
 package arcticsoft.coffeeshop;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 class CoffeeTest {
     @Test
-    void coffeeMakeTest() {
-        assertEquals(Coffee1.class, Coffee1.make("Coffee1").getClass());
-        assertEquals(Coffee2.class, Coffee1.make("Coffee2").getClass());
+    void constructCoffee() {
+        assertEquals(Coffee1.class, Coffee1.make().getClass());
+        assertEquals(Coffee2.class, Coffee2.make().getClass());
     }
 
     @Test
-    void getDescriptionTest() {
+    void getDescription() {
+        assertEquals("Coffee1, which is GROUND_BEAN LIGHT", Coffee1.make().getDescription());
+        assertEquals("Coffee2, which is WHOLE_BEAN DARK", Coffee2.make().getDescription());
+    }
+
+    @Test
+    void makeCoffe() {
         assertEquals("Coffee1, which is GROUND_BEAN LIGHT", Coffee.make("Coffee1").getDescription());
-        assertEquals("Coffee2, which is WHOLE_BEAN DARK", Coffee.make("Coffee2").getDescription());
+    }
+
+    @Test
+    void wrongCoffeeThrowsException() {
+        Executable exec = () -> Coffee.make("CoffeeSpecial");
+        assertThrows(IllegalArgumentException.class, exec);
     }
 }

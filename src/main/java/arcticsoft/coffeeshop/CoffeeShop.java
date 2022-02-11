@@ -23,8 +23,8 @@ class CoffeeShop {
     String listOrders() {
         var sb = new StringBuilder("You have the following items in your shopping cart:\n");
         for (CoffeeContainer item : orders) {
-            if (item instanceof Cup c) sb.append("- ").append(c.getDescription());
-            else if (item instanceof Bottle b) sb.append("- ").append(b.getDescription());
+            if (item instanceof Cup<?> c) sb.append("- ").append(c.getDescription());
+            else if (item instanceof Bottle<?> b) sb.append("- ").append(b.getDescription());
             sb.append("\n");
         }
         return sb.toString();

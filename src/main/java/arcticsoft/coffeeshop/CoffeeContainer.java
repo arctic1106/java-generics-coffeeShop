@@ -7,9 +7,7 @@ abstract sealed class CoffeeContainer permits Cup, Bottle {
         cofeeType = c;
     }
 
-    protected Coffee getCofeeType() {
-        return cofeeType;
+    protected String getDescription() {
+        return cofeeType.getDescription();
     }
-
-    protected abstract String getDescription();
 }

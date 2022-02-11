@@ -8,9 +8,8 @@ public final class Cup<T extends Coffee> extends CoffeeContainer {
         this.cupSize = cupSize;
     }
 
-    @Override
     protected String getDescription() {
-        return cupSize + " cup of " + getCofeeType().getDescription();
+        return cupSize + " cup of " + super.getDescription();
     }
 
     enum CupSize {SMALL, MEDIUM, BIG}

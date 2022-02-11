@@ -8,8 +8,7 @@ final class Bottle<T extends Coffee> extends CoffeeContainer {
         this.milliLiters = milliLiters;
     }
 
-    @Override
     protected String getDescription() {
-        return "Bottle of " + milliLiters + " milliLiters of " + getCofeeType().getDescription();
+        return "Bottle of " + milliLiters + " milliLiters of " + super.getDescription();
     }
 }
