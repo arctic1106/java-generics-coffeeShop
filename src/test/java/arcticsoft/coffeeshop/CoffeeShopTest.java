@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CoffeeShopTest {
-    @Test
+    
+	@Test
     void listShoppingCart() {
         var coffeeShop = new CoffeeShop();
         coffeeShop.buyCoffee("Coffee1", "Cup", Cup.CupSize.SMALL);
